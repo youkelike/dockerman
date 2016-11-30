@@ -57,3 +57,19 @@ class DataManage(object):
             node_data.append(tmp_dic)
             num += 1
         return node_data
+
+    @staticmethod
+    def manage_con_usage_info(result):
+        dict_data = {}
+        num = 1
+        for line in result:
+            tmp_dict = dict()
+            tmp_dict["con_id"] = line[0]
+            tmp_dict["con_ip"] = line[1]
+            tmp_dict["node_ip"] = line[2]
+            tmp_dict["user_name"] = line[3]
+            tmp_dict["con_app"] = line[4]
+            tmp_dict["con_desc"] = line[5]
+            dict_data[num] = tmp_dict
+            num += 1
+        return dict_data

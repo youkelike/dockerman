@@ -4,7 +4,15 @@ from handlers.node_handler import  Main,\
                                     Top,\
                                     LeftGroup,\
                                     GroupList,\
-                                    RightNode
+                                    RightNode,\
+                                    ConCreate,\
+                                    ConAction,\
+                                    ConStart,\
+                                    ConStop,\
+                                    ConDestroy,\
+                                    ConRestart,\
+                                    ConManage,\
+                                    ConModify
 
 urls = [
     (r'/',Login),
@@ -16,4 +24,12 @@ urls = [
     (r'/leftgroup',LeftGroup),
     (r'/grouplist',GroupList),
     (r'/node',RightNode),
+    (r'/concreate',ConCreate),
+    (r'/conaction',ConAction),
+    (r'/constart',ConStart),
+    (r'/constop',ConStop),
+    (r'/conrestart',ConRestart),
+    (r'/condestroy',ConDestroy),
+    (r'/conmanage',ConManage),
+    (r'/conmodify',ConModify),
 ]

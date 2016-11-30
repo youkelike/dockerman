@@ -37,3 +37,35 @@ class NodeInfo(object):
         ret = db.sql_query(sql)
         db.close()
         return ret
+
+    @staticmethod
+    def insert_con_usage(con_id, con_ip, node_ip):
+        db = MysqlServer(DATABASES)
+        sql = "insert into con_usage(con_id, con_ip, node_ip) values('%s','%s','%s')" % (con_id, con_ip, node_ip)
+        db.sql_execute(sql)
+        db.close()
+        return 0
+
+    @staticmethod
+    def delete_con_usage(con_id):
+        db = MysqlServer(DATABASES)
+        sql = "delete from con_usage where con_id='%s'" % con_id
+        db.sql_execute(sql)
+        db.close()
+        return 0
+
+    @staticmethod
+    def con_usage_info():
+        db = MysqlServer(DATABASES)
+        sql = "select `con_id`,`con_ip`,`node_ip`,`user_name`,`con_app`,`con_desc` from con_usage"
+        result = db.sql_query(sql)
+        db.close()
+        return result
+
+    @staticmethod
+    def get_con_usage_modify(result):
+        db = MysqlServer(DATABASES)
+        sql = "select `con_id`,`con_ip`,`node_ip`,`user_name`,`con_app`,`con_desc` from con_usage where con_id='%s'" % result
+        ret = db.sql_query(sql)
+        db.close()
+        return ret
